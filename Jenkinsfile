@@ -31,4 +31,16 @@ pipeline {
 
         }
     }
+    post {
+        success {
+            mail subject: 'your project is effective',
+                 body: 'your project is effective',
+                 to: 'all@qt.com'
+        }
+        failure {
+            mail subject: 'your project is defective',
+                 body: 'your project is defective',
+                 to: 'all@qt.com'
+        }
+    }
 }
