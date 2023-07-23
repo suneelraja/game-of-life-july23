@@ -10,6 +10,9 @@ pipeline {
     tools {
         jdk 'JAVA_8'
     }
+    parameters {
+        choice(name: 'GOAL', choices: ['package', 'clean package', 'install', 'clean install'], description: 'This is maven goal')
+    }
     stages {
         stage('code') {
             steps {
@@ -19,7 +22,7 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh script: 'mvn clean package'
+                sh script: "mvn ${params.GOAL}"
             }
 
         }
