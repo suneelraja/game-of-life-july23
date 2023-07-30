@@ -9,6 +9,7 @@ pipeline {
     }
     tools {
         jdk 'JAVA_8'
+        mvn 'Maven-3.6.3'
     }
     parameters {
         choice(name: 'GOAL', choices: ['package', 'clean package', 'install', 'clean install'], description: 'This is maven goal')
@@ -16,7 +17,7 @@ pipeline {
     stages {
         stage('code') {
             steps {
-                git url: 'https://github.com/dummyrepos/game-of-life-july23.git',
+                git url: 'https://github.com/suneelraja/game-of-life-july23.git',
                     branch: 'master'
             }
         }
