@@ -9,7 +9,7 @@ pipeline {
     }
     tools {
         jdk 'JAVA_8'
-        mvn 'Maven-3.6.3'
+        maven 'Maven-3.6.3'
     }
     parameters {
         choice(name: 'GOAL', choices: ['package', 'clean package', 'install', 'clean install'], description: 'This is maven goal')
